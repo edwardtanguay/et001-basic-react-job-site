@@ -28,16 +28,21 @@ body {
 	}
 
 	@media (max-width: 879px) {
-		.responsiveHeader {
-			display: flex;
-			justify-content: space-between;
+		main.content {
+			.responsiveHeader {
+				display: flex;
+				justify-content: space-between;
 
-			.skillsLink {
-				display: block;
-				margin-top: 1.2rem;
-				text-decoration: underline;
+				.skillsLink {
+					display: block;
+					margin-top: 1.2rem;
+					text-decoration: underline;
+				}
 			}
 
+			.loadingArea {
+				text-align: center;
+			}
 		}
 	}
 
@@ -50,30 +55,36 @@ body {
 			display: grid;
 			grid-template-columns: 3fr 1fr;
 			gap: 2rem;
+			.loadingArea {
+				margin-left: .4rem;
+			}
 		}
 	}
 
 	main.content {
 
-		.loadingMessage {
-			margin-top: 1rem;
-		}
+		.loadingArea {
 
-		div.loadingGraphic {
-			font-size: 11rem;
-			color: #393939;
-
-			.spinner {
-				animation: spin infinite 2s linear;
+			.loadingMessage {
+				margin-top: 1rem;
 			}
 
-			@keyframes spin {
-				from {
-					transform: rotate(0deg);
+			div.loadingGraphic {
+				font-size: 11rem;
+				color: #393939;
+
+				.spinner {
+					animation: spin infinite 2s linear;
 				}
 
-				to {
-					transform: rotate(360deg);
+				@keyframes spin {
+					from {
+						transform: rotate(0deg);
+					}
+
+					to {
+						transform: rotate(360deg);
+					}
 				}
 			}
 		}

@@ -3,7 +3,6 @@ import './App.scss';
 import axios from 'axios';
 import { IJob, ISkill } from './interfaces';
 import * as tools from './tools';
-import { FaSpinner } from 'react-icons/fa';
 import { FiLoader } from 'react-icons/fi';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
@@ -39,7 +38,7 @@ function App() {
 			<h2>Get a Job</h2>
 			<main className="content">
 				{jobs.length === 0 ? (
-					<div>
+					<div className="loadingArea">
 						<h3 className="loadingMessage">
 							Loading live data...{' '}
 						</h3>
