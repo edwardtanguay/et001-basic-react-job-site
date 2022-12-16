@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import axios from 'axios';
 import { IJob, ISkill } from './interfaces';
+import * as tools from './tools';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
@@ -23,24 +24,12 @@ function App() {
 			const skillsResponse = await axios.get(skillsUrl);
 			const _skills = skillsResponse.data;
 
-			_jobs.forEach((job: IJob) => {
-				const idCodes = job.skillList.split(',').map((m) => m.trim());
-				job.skills = [];
-				idCodes.forEach((idCode) => {
-					const skill: ISkill = _skills.find(
-						(skill: ISkill) => skill.idCode === idCode
-					);
-					job.skills.push(skill);
-				});
-			});
+			tools.expandSkillsInJobs(_jobs, _skills);
 
 			setJobs(_jobs);
 			setSkills(_skills);
 		})();
 	}, []);
-
-	// useEffect(() => {
-	// }, [jobs, skills]);
 
 	return (
 		<div className="App">
