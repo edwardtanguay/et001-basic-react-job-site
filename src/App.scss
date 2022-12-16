@@ -55,6 +55,29 @@ body {
 
 	main.content {
 
+		.loadingMessage {
+			margin-top: 1rem;
+		}
+
+		div.loadingGraphic {
+			font-size: 11rem;
+			color: #393939;
+
+			.spinner {
+				animation: spin infinite 2s linear;
+			}
+
+			@keyframes spin {
+				from {
+					transform: rotate(0deg);
+				}
+
+				to {
+					transform: rotate(360deg);
+				}
+			}
+		}
+
 		section.jobArea {
 			.jobs {
 				.job {
@@ -97,6 +120,7 @@ body {
 
 					.skills {
 						padding: 0 .5rem;
+
 						.skill {
 							padding: .3rem .3rem .3rem 0;
 						}
