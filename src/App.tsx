@@ -41,25 +41,36 @@ function App() {
 						{jobs.map((job) => {
 							return (
 								<div key={job.id} className="job">
-									<div className="title">
-										<a href={job.url} target="_blank">
-											{job.title}
-										</a>
-									</div>
-									<div className="company">{job.company}</div>
-									<div className="publicationDate">
-										{job.publicationDate}
+									<div className="header">
+										<div className="title">
+											<a href={job.url} target="_blank">
+												{job.title}
+											</a>
+										</div>
+										<div className="company">
+											{job.company}
+										</div>
+										<div className="publicationDate">
+											Posted: {job.publicationDate}
+										</div>
 									</div>
 									<div className="skills">
 										{job.skills && (
 											<>
-												{job.skills.map(skill => {
+												{job.skills.map((skill) => {
 													return (
 														<div className="skill">
-															<a href={skill.url} target="_blank">{skill.name}</a> - {skill.description}
-													</div>
-												)
-											})}
+															<a
+																href={skill.url}
+																target="_blank"
+															>
+																{skill.name}
+															</a>{' '}
+															-{' '}
+															{skill.description}
+														</div>
+													);
+												})}
 											</>
 										)}
 									</div>
