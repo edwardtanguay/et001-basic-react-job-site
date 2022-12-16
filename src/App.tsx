@@ -34,7 +34,7 @@ function App() {
 	return (
 		<div className="App"> 
 			<a id="jobs"></a>
-			<h2>Job Site</h2>
+			<h2>Get a Job</h2>
 			<main className="content">
 				<section className="jobArea">
 					<div className="responsiveHeader">
