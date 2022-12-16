@@ -166,21 +166,42 @@ function App() {
 														}
 													</div>
 													<div className="icons">
-														<a
-															target="_blank"
-															href={
-																skillTotal.skill
-																	.url
-															}
-														>
-															<ImInfo className="icon iconInfo" />
-														</a>
-														<a
-															target="_blank"
-															href={`https://www.youtube.com/results?search_query=web+development+${skillTotal.skill.idCode}`}
-														>
-															<ImYoutube className="icon iconYoutube" />
-														</a>
+														<div className="iconWrapper">
+															<a
+																target="_blank"
+																href={
+																	skillTotal
+																		.skill
+																		.url
+																}
+															>
+																<ImInfo className="icon iconInfo" />
+															</a>
+														</div>
+
+														<div className="iconWrapper">
+															<a
+																target="_blank"
+																href={`https://www.youtube.com/results?search_query=web+development+${skillTotal.skill.idCode}`}
+															>
+																<ImYoutube className="icon iconYoutube" />
+															</a>
+															<div className="extra extraYoutube">
+																en
+															</div>
+														</div>
+
+														<div className="iconWrapper">
+															<a
+																target="_blank"
+																href={`https://www.youtube.com/results?search_query=web+development+deutsch+${skillTotal.skill.idCode}`}
+															>
+																<ImYoutube className="icon iconYoutube" />
+															</a>
+															<div className="extra extraYoutube">
+																de
+															</div>
+														</div>
 													</div>
 												</div>
 											)}
