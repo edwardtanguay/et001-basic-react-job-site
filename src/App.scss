@@ -27,6 +27,7 @@ body {
 		color: $skills_color;
 	}
 
+	// smartphone
 	@media (max-width: 879px) {
 		main.content {
 			.responsiveHeader {
@@ -42,10 +43,12 @@ body {
 
 			.loadingArea {
 				text-align: center;
+				margin-top:5rem;
 			}
 		}
 	}
 
+	// computer
 	@media (min-width: 880px) {
 		.skillsLink {
 			display: none;
