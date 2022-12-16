@@ -12,9 +12,9 @@
 			- x https://edwardtanguay.vercel.app/share/skills.json
 	- x display skills
 		- x split screen left/right in sections
-	- .. sort jobs by date descending
-	- combine jobs with skills
-		- convert skillList
+	- x sort jobs by date descending
+	- .. combine jobs with skills
+		- .. convert skillList
 			- e.g. angular, cicd, testing, hotjar, piwik
 		- to skill objects:
 			--------------------------------

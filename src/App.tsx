@@ -12,6 +12,7 @@ interface IJob {
 	company: string;
 	description: string;
 	skillList: string;
+	skills: ISkill[];
 	publicationDate: string;
 }
 
@@ -30,7 +31,9 @@ function App() {
 		(async () => {
 			const response = await fetch(jobUrl);
 			const _jobs = await response.json();
-			_jobs.sort((a: IJob, b: IJob) => a.publicationDate < b.publicationDate);
+			_jobs.sort(
+				(a: IJob, b: IJob) => a.publicationDate < b.publicationDate
+			);
 			setJobs(_jobs);
 		})();
 	}, []);
@@ -42,6 +45,14 @@ function App() {
 			setSkills(_skills);
 		})();
 	}, []);
+
+	useEffect(() => {
+		expandSkillsInJobs(jobs, skills);
+	}, [jobs, skills]);
+
+	const expandSkillsInJobs = (jobs: IJob[], skills: ISkill[]) => {
+		console.log(jobs.length, skills.length)
+	};
 
 	return (
 		<div className="App">
@@ -73,12 +84,16 @@ function App() {
 				<section className="skillArea">
 					<h3>There are {skills.length} skills.</h3>
 					<div className="skills">
-						{skills.map(skill => {
+						{skills.map((skill) => {
 							return (
-								<div className="skill">
-									<div className="name"><a target="_blank" href={skill.url}>{skill.name}</a></div>
+								<div key={skill.idCode} className="skill">
+									<div className="name">
+										<a target="_blank" href={skill.url}>
+											{skill.name}
+										</a>
+									</div>
 								</div>
-							)
+							);
 						})}
 					</div>
 				</section>
