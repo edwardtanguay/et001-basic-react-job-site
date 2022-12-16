@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import axios from 'axios';
 import { IJob, ISkill } from './interfaces';
-import * as tools from './tools';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
@@ -13,7 +12,6 @@ function App() {
 
 	useEffect(() => {
 		(async () => {
-
 			// load jobs
 			const jobsResponse = await fetch(jobUrl);
 			const _jobs = await jobsResponse.json();
@@ -25,14 +23,23 @@ function App() {
 			const skillsResponse = await axios.get(skillsUrl);
 			const _skills = skillsResponse.data;
 
+			_jobs.forEach((job: IJob) => {
+				job.skills = [
+					{
+						name: 'nnn',
+						idCode: 'iii',
+						description: 'ddd',
+						url: 'uuu',
+					},
+				];
+			});
+
 			setJobs(_jobs);
 			setSkills(_skills);
 		})();
 	}, []);
 
-
 	// useEffect(() => {
-	// 	tools.expandSkillsInJobs(jobs, skills, setJobs);
 	// }, [jobs, skills]);
 
 	return (
