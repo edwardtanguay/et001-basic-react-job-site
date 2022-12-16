@@ -32,7 +32,7 @@ function App() {
 	}, []);
 
 	return (
-		<div className="App">
+		<div className="App"> 
 			<a id="jobs"></a>
 			<h2>Job Site</h2>
 			<main className="content">
