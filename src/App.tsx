@@ -1,27 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import axios from 'axios';
+import { IJob, ISkill } from './interfaces';
+import * as tools from './tools';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
-
-interface IJob {
-	id: number;
-	title: string;
-	url: string;
-	company: string;
-	description: string;
-	skillList: string;
-	skills: ISkill[];
-	publicationDate: string;
-}
-
-interface ISkill {
-	idCode: string;
-	name: string;
-	url: string;
-	description: string;
-}
 
 function App() {
 	const [jobs, setJobs] = useState<IJob[]>([]);
@@ -47,12 +31,8 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		expandSkillsInJobs(jobs, skills);
+		tools.expandSkillsInJobs(jobs, skills);
 	}, [jobs, skills]);
-
-	const expandSkillsInJobs = (jobs: IJob[], skills: ISkill[]) => {
-		console.log(jobs.length, skills.length)
-	};
 
 	return (
 		<div className="App">
