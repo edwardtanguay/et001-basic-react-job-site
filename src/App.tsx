@@ -28,10 +28,11 @@ function App() {
 				tools.expandSkillsInJobs(_jobs, _skills);
 
 				const _skillTotals = tools.getSkillTotals(_jobs);
-				console.log(_skillTotals);
 
 				setJobs(_jobs);
 				setSkills(_skills);
+				setSkillTotals(_skillTotals);
+
 			})();
 		}, 2000);
 	}, []);
@@ -116,24 +117,24 @@ function App() {
 						<section className="skillArea">
 							<a id="skills"></a>
 							<div className="responsiveHeader">
-								<h3>There are {skills.length} skills:</h3>
+								<h3>There are {skillTotals.length} skills:</h3>
 								<div className="skillsLink">
 									<a href="#jobs">jobs</a>
 								</div>
 							</div>
 							<div className="skills">
-								{skills.map((skill) => {
+								{skillTotals.map((skillTotal) => {
 									return (
 										<div
-											key={skill.idCode}
+											key={skillTotal.skill.idCode}
 											className="skill"
 										>
 											<div className="name">
 												<a
 													target="_blank"
-													href={skill.url}
+													href={skillTotal.skill.url}
 												>
-													{skill.name}
+													{skillTotal.skill.name}
 												</a>
 											</div>
 										</div>
