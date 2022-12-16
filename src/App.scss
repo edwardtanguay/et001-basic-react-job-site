@@ -219,6 +219,13 @@ body {
 									color: $youtubeColor;
 									text-shadow: 1px 1px 1px 3px #666;
 								}
+								
+								.iconGoogle {
+									color: rgb(130, 100, 17);
+									font-size: 1.6rem;
+									text-shadow: 1px 1px 1px 3px #666;
+									margin-top: 1.1rem;
+								}
 
 								.extra {
 									margin-top: -.5rem;
@@ -228,6 +235,12 @@ body {
 
 								.extraYoutube {
 									color: #222;
+									margin-top: -.3rem !important;
+								}
+
+								.extraGoogle {
+									color: #222;
+									margin-top: -.1rem !important;
 								}
 							}
 						}

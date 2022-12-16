@@ -6,6 +6,7 @@ import * as tools from './tools';
 import { FiLoader } from 'react-icons/fi';
 import { ImInfo } from 'react-icons/im';
 import { ImYoutube } from 'react-icons/im';
+import { BsGoogle } from 'react-icons/bs';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
@@ -177,6 +178,30 @@ function App() {
 															>
 																<ImInfo className="icon iconInfo" />
 															</a>
+														</div>
+
+														<div className="iconWrapper">
+															<a
+																target="_blank"
+																href={`https://www.google.com/search?q=${skillTotal.skill.idCode}+web+development`}
+															>
+																<BsGoogle className="icon iconGoogle" />
+															</a>
+															<div className="extra extraGoogle">
+																en
+															</div>
+														</div>
+
+														<div className="iconWrapper">
+															<a
+																target="_blank"
+																href={`https://www.google.de/search?q=${skillTotal.skill.idCode}+web+development+deutsch`}
+															>
+																<BsGoogle className="icon iconGoogle" />
+															</a>
+															<div className="extra extraGoogle">
+															de	
+															</div>
 														</div>
 
 														<div className="iconWrapper">
