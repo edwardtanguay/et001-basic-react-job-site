@@ -149,7 +149,7 @@ function App() {
 											</div>
 											{skillTotal.isOpen && (
 												<div className="skillInfo">
-													nnn
+													<div className="description">{skillTotal.skill.description}</div>
 												</div>
 											)}
 										</div>
