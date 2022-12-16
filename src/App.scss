@@ -2,6 +2,7 @@ $title_color: rgb(204, 168, 101);
 $title_underline_color: darken($title_color, 30%);
 $skills_color: rgb(210, 210, 143);
 $skillRadius: .5rem;
+$skillBorder: rgb(82, 82, 58);
 
 
 body {
@@ -155,6 +156,9 @@ body {
 					}
 					.skill.isOpen {
 						border-radius: $skillRadius $skillRadius 0 0;
+						border-top: 1px solid $skillBorder;
+						border-left: 1px solid $skillBorder;
+						border-right: 1px solid $skillBorder;
 					}
 
 					.skill {
@@ -186,6 +190,9 @@ body {
 						background-color: #3c3c3c;
 						padding: 1rem;
 						border-radius: 0 0 $skillRadius $skillRadius;
+						border-bottom: 1px solid $skillBorder;
+						border-left: 1px solid $skillBorder;
+						border-right: 1px solid $skillBorder;
 					}
 				}
 			}
