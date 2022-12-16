@@ -129,13 +129,19 @@ function App() {
 							<div className="skills">
 								{skillTotals.map((skillTotal) => {
 									return (
-										<div
-											key={skillTotal.skill.idCode}
-											className="skill"
-										>
-											<div className="name">
-												<span className="total">{skillTotal.total}x</span> {skillTotal.skill.name}
+										<div className="skillWrapper">
+											<div
+												key={skillTotal.skill.idCode}
+												className="skill"
+											>
+												<div className="name">
+													<span className="total">
+														{skillTotal.total}x
+													</span>{' '}
+													{skillTotal.skill.name}
+												</div>
 											</div>
+											<div className="skillInfo">nnn</div>
 										</div>
 									);
 								})}
