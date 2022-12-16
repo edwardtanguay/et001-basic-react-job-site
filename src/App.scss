@@ -57,7 +57,7 @@ body {
 		main.content {
 			display: grid;
 			grid-template-columns: 3fr 1fr;
-			gap: 2rem;
+			gap: 1rem;
 
 			.loadingArea {
 				margin-left: .4rem;
@@ -148,7 +148,24 @@ body {
 
 			.skills {
 				.skill {
+					background-color: #222;
+					padding: 1rem;
+					border-radius: .3rem;
 					margin-bottom: .5rem;
+
+					&:hover {
+						background-color: #252525;
+					}
+
+					cursor: pointer;
+
+					.name {
+						.total {
+							color: rgb(225, 177, 73);
+						}
+						color: rgb(171, 171, 93);
+						font-size: 1.5rem;
+					}
 				}
 			}
 		}

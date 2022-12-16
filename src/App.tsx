@@ -21,7 +21,7 @@ function App() {
 				_jobs.sort((a: IJob, b: IJob) =>
 					a.publicationDate > b.publicationDate ? -1 : 1
 				);
-				
+
 				const skillsResponse = await axios.get(skillsUrl);
 				const _skills = skillsResponse.data;
 
@@ -32,7 +32,6 @@ function App() {
 				setJobs(_jobs);
 				setSkills(_skills);
 				setSkillTotals(_skillTotals);
-
 			})();
 		}, 2000);
 	}, []);
@@ -87,7 +86,12 @@ function App() {
 														{job.skills.map(
 															(skill) => {
 																return (
-																	<div className="skill" key={skill.idCode}>
+																	<div
+																		className="skill"
+																		key={
+																			skill.idCode
+																		}
+																	>
 																		<a
 																			href={
 																				skill.url
@@ -130,12 +134,7 @@ function App() {
 											className="skill"
 										>
 											<div className="name">
-												<a
-													target="_blank"
-													href={skillTotal.skill.url}
-												>
-													{skillTotal.skill.name}
-												</a>
+												<span className="total">{skillTotal.total}x</span> {skillTotal.skill.name}
 											</div>
 										</div>
 									);
