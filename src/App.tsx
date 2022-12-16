@@ -31,7 +31,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		tools.expandSkillsInJobs(jobs, skills);
+		tools.expandSkillsInJobs(jobs, skills, setJobs);
 	}, [jobs, skills]);
 
 	return (
@@ -55,6 +55,11 @@ function App() {
 									</div>
 									<div className="skillList">
 										{job.skillList}
+									</div>
+									<div className="skills">
+										{job.skills && (
+											<>Skills: {job.skills.length}</>
+										)}
 									</div>
 								</div>
 							);
