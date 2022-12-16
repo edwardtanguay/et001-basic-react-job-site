@@ -14,7 +14,7 @@
 		- x split screen left/right in sections
 	- x sort jobs by date descending
 	- .. combine jobs with skills
-		- .. create tools module with one fucntion
+		- x create tools module with one fucntion
 		- .. convert skillList
 			- e.g. angular, cicd, testing, hotjar, piwik
 		- to skill objects:
