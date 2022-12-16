@@ -36,6 +36,11 @@ function App() {
 		}, 2000);
 	}, []);
 
+	const toggleSkillTotalIsOpen = (skillTotal: ISkillTotal) => {
+		skillTotal.isOpen = !skillTotal.isOpen;
+		setSkillTotals([...skillTotals]);
+	}
+
 	return (
 		<div className="App">
 			<a id="jobs"></a>
@@ -133,6 +138,7 @@ function App() {
 											<div
 												key={skillTotal.skill.idCode}
 												className="skill"
+												onClick={() => toggleSkillTotalIsOpen(skillTotal)}
 											>
 												<div className="name">
 													<span className="total">
@@ -141,7 +147,11 @@ function App() {
 													{skillTotal.skill.name}
 												</div>
 											</div>
-											<div className="skillInfo">nnn</div>
+											{skillTotal.isOpen && (
+												<div className="skillInfo">
+													nnn
+												</div>
+											)}
 										</div>
 									);
 								})}
