@@ -1,11 +1,15 @@
 $title_color: rgb(204, 168, 101);
 $title_underline_color: darken($title_color, 30%);
+$skills_color: rgb(210, 210, 143);
+
+
 
 body {
 	background-color: #333;
 	color: #ccc;
 	font-family: sans-serif;
 	padding: 0 1rem;
+	min-width: 310px;
 
 	h2 {
 		color: #444;
@@ -20,12 +24,40 @@ body {
 	}
 
 	a {
-		color: rgb(210, 210, 143);
+		color: $skills_color;
+	}
+
+	@media (max-width: 879px) {
+		main.content {
+			section.jobArea {
+				.jobAreaHeader {
+					display: flex;
+					justify-content: space-between;
+
+					.skillsLink {
+						display: block;
+						margin-top: 1.2rem;
+						text-decoration: underline;
+					}
+
+				}
+			}
+		}
+	}
+
+	@media (min-width: 880px) {
+		.skillsLink {
+			display: none;
+		}
+
+		main.content {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			gap: 2rem;
+		}
 	}
 
 	main.content {
-		display: flex;
-		gap: 2rem;
 
 		section.jobArea {
 			.jobs {
@@ -39,8 +71,8 @@ body {
 						background-color: #1a1a1a;
 						padding: .8rem;
 						border-radius: .5rem;
-						width: 30rem;
 						margin-bottom: .5rem;
+						max-width: 30rem;
 
 						.title {
 							font-size: 1.3rem;
@@ -77,7 +109,6 @@ body {
 		}
 
 		section.skillArea {
-			width: 39rem;
 
 			.skills {
 				.skill {
