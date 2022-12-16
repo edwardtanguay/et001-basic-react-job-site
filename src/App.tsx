@@ -137,7 +137,7 @@ function App() {
 										<div className="skillWrapper">
 											<div
 												key={skillTotal.skill.idCode}
-												className="skill"
+												className={`skill ${skillTotal.isOpen ? 'isOpen' : 'isClosed'}`}
 												onClick={() => toggleSkillTotalIsOpen(skillTotal)}
 											>
 												<div className="name">
