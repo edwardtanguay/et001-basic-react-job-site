@@ -28,20 +28,16 @@ body {
 	}
 
 	@media (max-width: 879px) {
-		main.content {
-			section.jobArea {
-				.jobAreaHeader {
-					display: flex;
-					justify-content: space-between;
+		.responsiveHeader {
+			display: flex;
+			justify-content: space-between;
 
-					.skillsLink {
-						display: block;
-						margin-top: 1.2rem;
-						text-decoration: underline;
-					}
-
-				}
+			.skillsLink {
+				display: block;
+				margin-top: 1.2rem;
+				text-decoration: underline;
 			}
+
 		}
 	}
 
