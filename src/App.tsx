@@ -30,6 +30,7 @@ function App() {
 		(async () => {
 			const response = await fetch(jobUrl);
 			const _jobs = await response.json();
+			_jobs.sort((a: IJob, b: IJob) => a.publicationDate < b.publicationDate);
 			setJobs(_jobs);
 		})();
 	}, []);

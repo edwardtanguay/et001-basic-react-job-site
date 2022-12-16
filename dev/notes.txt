@@ -10,8 +10,9 @@
 			- x make box areas for each job
 		- x with axios:
 			- x https://edwardtanguay.vercel.app/share/skills.json
-	- .. display skills
-		- .. split screen left/right in sections
+	- x display skills
+		- x split screen left/right in sections
+	- .. sort jobs by date descending
 	- combine jobs with skills
 		- convert skillList
 			- e.g. angular, cicd, testing, hotjar, piwik
