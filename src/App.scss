@@ -1,4 +1,4 @@
-$title_color:  rgb(204, 168, 101);
+$title_color: rgb(204, 168, 101);
 $title_underline_color: darken($title_color, 30%);
 
 body {
@@ -10,7 +10,7 @@ body {
 	h2 {
 		color: #444;
 		font-size: 4rem;
-		font-weight:bold;
+		font-weight: bold;
 		margin: 1rem 0 0 0;
 		text-shadow: 1px 1px 5px #1e1e1e;
 	}
@@ -40,13 +40,16 @@ body {
 						padding: .8rem;
 						border-radius: .5rem;
 						width: 30rem;
+						margin-bottom: .5rem;
 
 						.title {
 							font-size: 1.3rem;
 							margin-bottom: .3rem;
+
 							a {
 								text-decoration: none;
-								color:$title_color;
+								color: $title_color;
+
 								&:hover {
 									border-bottom: 1px solid $title_underline_color;
 								}
@@ -60,6 +63,13 @@ body {
 						.publicationDate {
 							color: rgb(197, 197, 128);
 							margin-top: .5rem;
+						}
+
+					}
+
+					.skills {
+						.skill {
+							padding: .3rem .3rem .3rem 0;
 						}
 					}
 				}
