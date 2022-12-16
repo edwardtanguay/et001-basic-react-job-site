@@ -2,12 +2,12 @@
 	- x go to projects directory
 	- x create a React site with Vite (with TypeScript)
 	- x create repository
-	- .. minimize the site
-	- fetch data from these files 
+	- x minimize the site
+	- .. fetch data from these files 
+		- .. with fetch:
+			- https://edwardtanguay.vercel.app/share/skills.json
 		- with axios:
 			- https://edwardtanguay.vercel.app/share/jobs.json
-		- with fetch:
-			- https://edwardtanguay.vercel.app/share/skills.json
 	- display jobs
 	- display skills
 	- combine jobs with skills
