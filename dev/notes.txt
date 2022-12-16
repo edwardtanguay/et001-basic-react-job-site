@@ -1,0 +1,35 @@
+- .. create a job site with React
+	- x go to projects directory
+	- x create a React site with Vite (with TypeScript)
+	- x create repository
+	- .. minimize the site
+	- fetch data from these files 
+		- with axios:
+			- https://edwardtanguay.vercel.app/share/jobs.json
+		- with fetch:
+			- https://edwardtanguay.vercel.app/share/skills.json
+	- display jobs
+	- display skills
+	- combine jobs with skills
+		- convert skillList
+			- e.g. angular, cicd, testing, hotjar, piwik
+		- to skill objects:
+			--------------------------------
+			[
+				{
+					"idCode": "angular",
+					"name": "Angular",
+					"url": "https://onespace.pages.dev/techItems?id=36",
+					"description": "together with React and Vue.js one of the three most popular JavaScript frameworks"
+				},
+				{
+					"idCode": "cicd",
+					"name": "CI/CD",
+					"url": "https://about.gitlab.com/topics/ci-cd",
+					"description": "the combined practices of continuous integration (CI) and continuous deployment (CD)"
+				},
+				...
+			]
+			--------------------------------
+	- display jobs with skills that have links to more info, etc.
+	
