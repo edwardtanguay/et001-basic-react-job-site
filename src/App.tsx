@@ -45,23 +45,43 @@ function App() {
 	return (
 		<div className="App">
 			<h2>Job Site</h2>
-			<p>There are {jobs.length} jobs.</p>
-			<div className="jobs">
-				{jobs.map((job) => {
-					return (
-						<div key={job.id} className="job">
-							<div className="title">
-								<a href={job.url} target="_blank">
-									{job.title}
-								</a>
-							</div>
-							<div className="company">{job.company}</div>
-							<div className="publicationDate">{job.publicationDate}</div>
-							<div className="skillList">{job.skillList}</div>
-						</div>
-					);
-				})}
-			</div>
+			<main className="content">
+				<section className="jobArea">
+					<h3>There are {jobs.length} jobs.</h3>
+					<div className="jobs">
+						{jobs.map((job) => {
+							return (
+								<div key={job.id} className="job">
+									<div className="title">
+										<a href={job.url} target="_blank">
+											{job.title}
+										</a>
+									</div>
+									<div className="company">{job.company}</div>
+									<div className="publicationDate">
+										{job.publicationDate}
+									</div>
+									<div className="skillList">
+										{job.skillList}
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</section>
+				<section className="skillArea">
+					<h3>There are {skills.length} skills.</h3>
+					<div className="skills">
+						{skills.map(skill => {
+							return (
+								<div className="skill">
+									<div className="name"><a target="_blank" href={skill.url}>{skill.name}</a></div>
+								</div>
+							)
+						})}
+					</div>
+				</section>
+			</main>
 		</div>
 	);
 }

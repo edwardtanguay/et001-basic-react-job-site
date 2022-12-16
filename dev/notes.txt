@@ -8,9 +8,10 @@
 			- x https://edwardtanguay.vercel.app/share/jobs.json
 		- x display jobs
 			- x make box areas for each job
-		- .. with axios:
-			- .. https://edwardtanguay.vercel.app/share/skills.json
-	- display skills
+		- x with axios:
+			- x https://edwardtanguay.vercel.app/share/skills.json
+	- .. display skills
+		- .. split screen left/right in sections
 	- combine jobs with skills
 		- convert skillList
 			- e.g. angular, cicd, testing, hotjar, piwik

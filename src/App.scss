@@ -12,24 +12,44 @@ body {
 		color: rgb(210, 210, 143);
 	}
 
-	.jobs {
-		.job {
-			background-color: #222;
-			margin-bottom: 1rem;
-			padding: 1rem;
+	main.content {
+		display: flex;
+		gap: 2rem;
 
-			.title {
-				a {
-					text-decoration: none;
-					color: rgb(204, 168, 101);
+		section.jobArea {
+			.jobs {
+				.job {
+					background-color: #222;
+					margin-bottom: 1rem;
+					padding: 1rem;
+
+					.title {
+						a {
+							text-decoration: none;
+							color: rgb(204, 168, 101);
+						}
+					}
+
+					.company {
+						font-style: italic;
+					}
+
+					.publicationDate {
+						color: rgb(197, 197, 128);
+					}
 				}
 			}
-			.company {
-				font-style: italic;
-			}
-			.publicationDate {
-				color: rgb(197, 197, 128);
+		}
+
+		section.skillArea {
+			width: 39rem;
+
+			.skills {
+				.skill {
+					margin-bottom: .5rem;
+				}
 			}
 		}
 	}
+
 }
