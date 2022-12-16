@@ -24,14 +24,14 @@ function App() {
 			const _skills = skillsResponse.data;
 
 			_jobs.forEach((job: IJob) => {
-				job.skills = [
-					{
-						name: 'nnn',
-						idCode: 'iii',
-						description: 'ddd',
-						url: 'uuu',
-					},
-				];
+				const idCodes = job.skillList.split(',').map((m) => m.trim());
+				job.skills = [];
+				idCodes.forEach((idCode) => {
+					const skill: ISkill = _skills.find(
+						(skill: ISkill) => skill.idCode === idCode
+					);
+					job.skills.push(skill);
+				});
 			});
 
 			setJobs(_jobs);
