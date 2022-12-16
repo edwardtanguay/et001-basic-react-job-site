@@ -17,7 +17,7 @@ function App() {
 			const jobsResponse = await fetch(jobUrl);
 			const _jobs = await jobsResponse.json();
 			_jobs.sort(
-				(a: IJob, b: IJob) => a.publicationDate < b.publicationDate
+				(a: IJob, b: IJob) => a.publicationDate > b.publicationDate ? -1 : 1
 			);
 
 			// load skills
