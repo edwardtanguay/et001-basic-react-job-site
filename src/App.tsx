@@ -36,7 +36,7 @@ function App() {
 			<h2>Job Site</h2>
 			<main className="content">
 				<section className="jobArea">
-					<h3>There are {jobs.length} jobs.</h3>
+					<h3>There are {jobs.length} jobs:</h3>
 					<div className="jobs">
 						{jobs.map((job) => {
 							return (
@@ -80,7 +80,7 @@ function App() {
 					</div>
 				</section>
 				<section className="skillArea">
-					<h3>There are {skills.length} skills.</h3>
+					<h3>There are {skills.length} skills:</h3>
 					<div className="skills">
 						{skills.map((skill) => {
 							return (
