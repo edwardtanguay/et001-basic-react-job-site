@@ -13,26 +13,27 @@ function App() {
 
 	useEffect(() => {
 		(async () => {
-			const response = await fetch(jobUrl);
-			const _jobs = await response.json();
+
+			// load jobs
+			const jobsResponse = await fetch(jobUrl);
+			const _jobs = await jobsResponse.json();
 			_jobs.sort(
 				(a: IJob, b: IJob) => a.publicationDate < b.publicationDate
 			);
-			setJobs(_jobs);
-		})();
-	}, []);
 
-	useEffect(() => {
-		(async () => {
-			const response = await axios.get(skillsUrl);
-			const _skills = response.data;
+			// load skills
+			const skillsResponse = await axios.get(skillsUrl);
+			const _skills = skillsResponse.data;
+
+			setJobs(_jobs);
 			setSkills(_skills);
 		})();
 	}, []);
 
-	useEffect(() => {
-		tools.expandSkillsInJobs(jobs, skills, setJobs);
-	}, [jobs, skills]);
+
+	// useEffect(() => {
+	// 	tools.expandSkillsInJobs(jobs, skills, setJobs);
+	// }, [jobs, skills]);
 
 	return (
 		<div className="App">
