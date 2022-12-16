@@ -62,9 +62,10 @@ function App() {
 					<>
 						<section className="jobArea">
 							<div className="responsiveHeader">
-								<h3>There are {jobs.length} jobs:</h3>
+								<h3 className="show_smartphone">{jobs.length} jobs</h3>
+								<h3 className="show_computer">There are {jobs.length} jobs:</h3>
 								<div className="skillsLink">
-									<a href="#skills">skills</a>
+										<a href="#skills">{skillTotals.length} skills</a>
 								</div>
 							</div>
 							<div className="jobs">
