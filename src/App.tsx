@@ -4,6 +4,8 @@ import axios from 'axios';
 import { IJob, ISkill, ISkillTotal } from './interfaces';
 import * as tools from './tools';
 import { FiLoader } from 'react-icons/fi';
+import { ImInfo } from 'react-icons/im';
+import { ImYoutube } from 'react-icons/im';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
@@ -39,7 +41,7 @@ function App() {
 	const toggleSkillTotalIsOpen = (skillTotal: ISkillTotal) => {
 		skillTotal.isOpen = !skillTotal.isOpen;
 		setSkillTotals([...skillTotals]);
-	}
+	};
 
 	return (
 		<div className="App">
@@ -137,8 +139,16 @@ function App() {
 										<div className="skillWrapper">
 											<div
 												key={skillTotal.skill.idCode}
-												className={`skill ${skillTotal.isOpen ? 'isOpen' : 'isClosed'}`}
-												onClick={() => toggleSkillTotalIsOpen(skillTotal)}
+												className={`skill ${
+													skillTotal.isOpen
+														? 'isOpen'
+														: 'isClosed'
+												}`}
+												onClick={() =>
+													toggleSkillTotalIsOpen(
+														skillTotal
+													)
+												}
 											>
 												<div className="name">
 													<span className="total">
@@ -149,7 +159,29 @@ function App() {
 											</div>
 											{skillTotal.isOpen && (
 												<div className="skillInfo">
-													<div className="description">{skillTotal.skill.description}</div>
+													<div className="description">
+														{
+															skillTotal.skill
+																.description
+														}
+													</div>
+													<div className="icons">
+														<a
+															target="_blank"
+															href={
+																skillTotal.skill
+																	.url
+															}
+														>
+															<ImInfo className="icon iconInfo" />
+														</a>
+														<a
+															target="_blank"
+															href={`https://www.youtube.com/results?search_query=web+development+${skillTotal.skill.idCode}`}
+														>
+															<ImYoutube className="icon iconYoutube" />
+														</a>
+													</div>
 												</div>
 											)}
 										</div>

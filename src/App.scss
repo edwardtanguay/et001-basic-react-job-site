@@ -193,6 +193,22 @@ body {
 						border-bottom: 1px solid $skillBorder;
 						border-left: 1px solid $skillBorder;
 						border-right: 1px solid $skillBorder;
+
+						.icons {
+							.icon {
+								margin-top: 1rem;
+								margin-right: .7rem;
+								font-size: 1.9rem;
+							}
+							.iconInfo {
+								color: rgb(4, 13, 39);
+								text-shadow: 1px 1px 1px 3px #666;
+							}
+							.iconYoutube {
+								color: rgb(149, 27, 5);
+								text-shadow: 1px 1px 1px 3px #666;
+							}
+						}
 					}
 				}
 			}
