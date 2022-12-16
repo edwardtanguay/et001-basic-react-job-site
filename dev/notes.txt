@@ -4,11 +4,12 @@
 	- x create repository
 	- x minimize the site
 	- .. fetch data from these files 
-		- .. with fetch:
-			- https://edwardtanguay.vercel.app/share/skills.json
+		- x with fetch:
+			- x https://edwardtanguay.vercel.app/share/jobs.json
+		- .. display jobs
+			- .. make box areas for each job
 		- with axios:
-			- https://edwardtanguay.vercel.app/share/jobs.json
-	- display jobs
+			- https://edwardtanguay.vercel.app/share/skills.json
 	- display skills
 	- combine jobs with skills
 		- convert skillList
