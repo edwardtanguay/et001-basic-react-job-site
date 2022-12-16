@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
+import axios from 'axios';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
+const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
 
 interface IJob {
 	id: number;
@@ -13,14 +15,30 @@ interface IJob {
 	publicationDate: string;
 }
 
+interface ISkill {
+	idCode: string;
+	name: string;
+	url: string;
+	description: string;
+}
+
 function App() {
 	const [jobs, setJobs] = useState<IJob[]>([]);
+	const [skills, setSkills] = useState<ISkill[]>([]);
 
 	useEffect(() => {
 		(async () => {
 			const response = await fetch(jobUrl);
 			const _jobs = await response.json();
 			setJobs(_jobs);
+		})();
+	}, []);
+
+	useEffect(() => {
+		(async () => {
+			const response = await axios.get(skillsUrl);
+			const _skills = response.data;
+			setSkills(_skills);
 		})();
 	}, []);
 

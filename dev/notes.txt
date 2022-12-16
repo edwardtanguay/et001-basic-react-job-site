@@ -6,10 +6,10 @@
 	- .. fetch data from these files 
 		- x with fetch:
 			- x https://edwardtanguay.vercel.app/share/jobs.json
-		- .. display jobs
-			- .. make box areas for each job
-		- with axios:
-			- https://edwardtanguay.vercel.app/share/skills.json
+		- x display jobs
+			- x make box areas for each job
+		- .. with axios:
+			- .. https://edwardtanguay.vercel.app/share/skills.json
 	- display skills
 	- combine jobs with skills
 		- convert skillList
