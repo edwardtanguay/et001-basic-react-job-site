@@ -61,12 +61,17 @@ function App() {
 									<div className="publicationDate">
 										{job.publicationDate}
 									</div>
-									<div className="skillList">
-										{job.skillList}
-									</div>
 									<div className="skills">
 										{job.skills && (
-											<>Skills: {job.skills.length}</>
+											<>
+												{job.skills.map(skill => {
+													return (
+														<div className="skill">
+															<a href={skill.url} target="_blank">{skill.name}</a> - {skill.description}
+													</div>
+												)
+											})}
+											</>
 										)}
 									</div>
 								</div>
