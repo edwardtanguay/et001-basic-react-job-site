@@ -14,4 +14,12 @@ export interface ISkill {
 	name: string;
 	url: string;
 	description: string;
+	lookupGoogleLink: string;
+	lookupYouTubeLink: string;
+}
+
+export interface ISkillTotal {
+	skill: ISkill;
+	total: number;
+	isOpen: boolean;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import axios from 'axios';
-import { IJob, ISkill } from './interfaces';
+import { IJob, ISkill, ISkillTotal } from './interfaces';
 import * as tools from './tools';
 import { FiLoader } from 'react-icons/fi';
 
@@ -11,6 +11,7 @@ const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
 function App() {
 	const [jobs, setJobs] = useState<IJob[]>([]);
 	const [skills, setSkills] = useState<ISkill[]>([]);
+	const [skillTotals, setSkillTotals] = useState<ISkillTotal[]>([]);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -20,11 +21,14 @@ function App() {
 				_jobs.sort((a: IJob, b: IJob) =>
 					a.publicationDate > b.publicationDate ? -1 : 1
 				);
-
+				
 				const skillsResponse = await axios.get(skillsUrl);
 				const _skills = skillsResponse.data;
 
 				tools.expandSkillsInJobs(_jobs, _skills);
+
+				const _skillTotals = tools.getSkillTotals(_jobs);
+				console.log(_skillTotals);
 
 				setJobs(_jobs);
 				setSkills(_skills);
@@ -82,7 +86,7 @@ function App() {
 														{job.skills.map(
 															(skill) => {
 																return (
-																	<div className="skill">
+																	<div className="skill" key={skill.idCode}>
 																		<a
 																			href={
 																				skill.url

@@ -1,4 +1,4 @@
-import { IJob, ISkill } from './interfaces';
+import { IJob, ISkill, ISkillTotal } from './interfaces';
 
 /**
  * expandSkillsInJobs fills skills property from skillList
@@ -20,3 +20,24 @@ export const expandSkillsInJobs = (jobs: IJob[], skills: ISkill[]) => {
 		});
 	});
 };
+
+
+export const getSkillTotals = (jobs: IJob[]) => {
+	const skillTotals: ISkillTotal[] = [];
+	jobs.forEach(job => {
+		job.skills.forEach(skill => {
+			const existingSkillTotal = skillTotals.find(skillTotal => skillTotal.skill.idCode === skill.idCode);
+			if (!existingSkillTotal) {
+				skillTotals.push({
+					skill,
+					total: 1,
+					isOpen: false
+				});
+			} else {
+				existingSkillTotal.total++;
+			}
+		});
+	});
+	skillTotals.sort((a: ISkillTotal, b: ISkillTotal) =>  a.total > b.total ? -1 : 1);
+	return skillTotals;
+}
