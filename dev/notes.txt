@@ -1,4 +1,6 @@
-- .. make responsive
-	- .. first with grid
+- .. refactor
+	- .. useContext
+	- move to components
+- add jobs to right column
 
 	

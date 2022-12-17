@@ -1,58 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { AppContext } from './AppContext';
 import './App.scss';
-import axios from 'axios';
-import { IJob, ISkill, ISkillTotal } from './interfaces';
-import * as tools from './tools';
 import { FiLoader } from 'react-icons/fi';
 import { InfoBar } from './components/InfoBar';
 import React from 'react';
 
-const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
-const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
-
 function App() {
-	const [jobs, setJobs] = useState<IJob[]>([]);
-	const [skills, setSkills] = useState<ISkill[]>([]);
-	const [skillTotals, setSkillTotals] = useState<ISkillTotal[]>([]);
-
-	useEffect(() => {
-		setTimeout(() => {
-			(async () => {
-				// build jobs
-				const jobsResponse = await fetch(jobUrl);
-				const _jobs = await jobsResponse.json();
-				_jobs.sort((a: IJob, b: IJob) =>
-					a.publicationDate > b.publicationDate ? -1 : 1
-				);
-
-				// build skills
-				const skillsResponse = await axios.get(skillsUrl);
-				const _skills: ISkill[] = skillsResponse.data;
-				tools.expandSkillsInJobs(_jobs, _skills);
-				_skills.forEach((_skill) => {
-					_skill.isOpen = false;
-				});
-
-				// build skillTotals
-				const _skillTotals = tools.getSkillTotals(_jobs);
-				console.log(_skillTotals);
-
-				setJobs(_jobs);
-				setSkills(_skills);
-				setSkillTotals(_skillTotals);
-			})();
-		}, 2000);
-	}, []);
-
-	const toggleSkillTotalIsOpen = (skillTotal: ISkillTotal) => {
-		skillTotal.isOpen = !skillTotal.isOpen;
-		setSkillTotals([...skillTotals]);
-	};
-
-	const handleInfoBarToggle = (skill: ISkill) => {
-		skill.isOpen = !skill.isOpen;
-		setSkills([...skills]);
-	};
+	const { jobs, skillTotals, handleInfoBarToggle, toggleSkillTotalIsOpen } =
+		useContext(AppContext);
 
 	return (
 		<div className="App">
@@ -111,7 +66,11 @@ function App() {
 														{job.skills.map(
 															(skill) => {
 																return (
-																	<React.Fragment key={skill.idCode}>
+																	<React.Fragment
+																		key={
+																			skill.idCode
+																		}
+																	>
 																		<div className="nameDescription">
 																			<span
 																				className="skill"
@@ -129,7 +88,8 @@ function App() {
 																				}
 																			</span>
 																			<span className="description">
-																				- {
+																				-{' '}
+																				{
 																					skill.description
 																				}
 																			</span>
@@ -166,7 +126,10 @@ function App() {
 							<div className="skills">
 								{skillTotals.map((skillTotal) => {
 									return (
-										<div className="skillWrapper" key={skillTotal.skill.idCode}>
+										<div
+											className="skillWrapper"
+											key={skillTotal.skill.idCode}
+										>
 											<div
 												key={skillTotal.skill.idCode}
 												className={`skill ${
