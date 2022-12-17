@@ -240,6 +240,20 @@ body {
 							color: #aaa;
 						}
 
+						.subJobList {
+							font-size: .8rem;
+							margin-top: .7rem;
+							.date {
+								color: orange;
+							}
+							a {
+								color: $skills_color;
+								text-decoration: none;
+								&:hover {
+									text-decoration: underline;
+								}
+							}
+						}
 					}
 				}
 			}

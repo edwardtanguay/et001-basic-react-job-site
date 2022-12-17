@@ -7,8 +7,7 @@ interface IProps {
 	skillTotal: ISkillTotal;
 }
 export const SkillTotal = ({ skillTotal }: IProps) => {
-	const { toggleSkillTotalIsOpen } =
-		useContext(AppContext);
+	const { toggleSkillTotalIsOpen } = useContext(AppContext);
 
 	return (
 		<div className="skillWrapper" key={skillTotal.skill.idCode}>
@@ -28,6 +27,15 @@ export const SkillTotal = ({ skillTotal }: IProps) => {
 						{skillTotal.skill.description}
 					</div>
 					<InfoBar skill={skillTotal.skill} />
+					<div className="subJobList">
+						{skillTotal.jobs.map((job) => {
+							return (
+								<div className="job">
+									<span className="date">{job.publicationDate}</span> <a href={job.url} target="_blank">{job.title}</a>
+								</div>
+							);
+						})}
+					</div>
 				</div>
 			)}
 		</div>
