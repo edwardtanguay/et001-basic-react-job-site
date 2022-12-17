@@ -3,7 +3,7 @@ import { AppContext } from '../AppContext';
 import { InfoBar } from '../components/InfoBar';
 
 export const SkillsArea = () => {
-	const { jobs, skillTotals, toggleSkillTotalIsOpen } =
+	const { skillTotals, toggleSkillTotalIsOpen } =
 		useContext(AppContext);
 
 	return (
