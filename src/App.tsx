@@ -4,9 +4,7 @@ import axios from 'axios';
 import { IJob, ISkill, ISkillTotal } from './interfaces';
 import * as tools from './tools';
 import { FiLoader } from 'react-icons/fi';
-import { ImInfo } from 'react-icons/im';
-import { ImYoutube } from 'react-icons/im';
-import { BsGoogle } from 'react-icons/bs';
+import { InfoBar } from './components/InfoBar';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
@@ -19,17 +17,22 @@ function App() {
 	useEffect(() => {
 		setTimeout(() => {
 			(async () => {
+				// build jobs
 				const jobsResponse = await fetch(jobUrl);
 				const _jobs = await jobsResponse.json();
 				_jobs.sort((a: IJob, b: IJob) =>
 					a.publicationDate > b.publicationDate ? -1 : 1
 				);
 
+				// build skills
 				const skillsResponse = await axios.get(skillsUrl);
-				const _skills = skillsResponse.data;
-
+				const _skills: ISkill[] = skillsResponse.data;
 				tools.expandSkillsInJobs(_jobs, _skills);
+				_skills.forEach((_skill) => {
+					_skill.isOpen = false;
+				});
 
+				// build skillTotals
 				const _skillTotals = tools.getSkillTotals(_jobs);
 
 				setJobs(_jobs);
@@ -42,6 +45,11 @@ function App() {
 	const toggleSkillTotalIsOpen = (skillTotal: ISkillTotal) => {
 		skillTotal.isOpen = !skillTotal.isOpen;
 		setSkillTotals([...skillTotals]);
+	};
+
+	const handleInfoBarToggle = (skill: ISkill) => {
+		skill.isOpen = !skill.isOpen;
+		setSkills([...skills]);
 	};
 
 	return (
@@ -62,10 +70,16 @@ function App() {
 					<>
 						<section className="jobArea">
 							<div className="responsiveHeader">
-								<h3 className="show_smartphone">{jobs.length} jobs</h3>
-								<h3 className="show_computer">There are {jobs.length} jobs:</h3>
+								<h3 className="show_smartphone">
+									{jobs.length} jobs
+								</h3>
+								<h3 className="show_computer">
+									There are {jobs.length} jobs:
+								</h3>
 								<div className="skillsLink">
-										<a href="#skills">{skillTotals.length} skills</a>
+									<a href="#skills">
+										{skillTotals.length} skills
+									</a>
 								</div>
 							</div>
 							<div className="jobs">
@@ -95,27 +109,39 @@ function App() {
 														{job.skills.map(
 															(skill) => {
 																return (
-																	<div
-																		className="skill"
-																		key={
-																			skill.idCode
-																		}
-																	>
-																		<a
-																			href={
-																				skill.url
-																			}
-																			target="_blank"
-																		>
-																			{
-																				skill.name
-																			}
-																		</a>{' '}
-																		-{' '}
-																		{
-																			skill.description
-																		}
-																	</div>
+																	<>
+																		<div className="nameDescription">
+																			<span
+																				className="skill"
+																				key={
+																					skill.idCode
+																				}
+																				onClick={() =>
+																					handleInfoBarToggle(
+																						skill
+																					)
+																				}
+																			>
+																				{
+																					skill.name
+																				}
+																			</span>
+																			<span className="description">
+																				- {
+																					skill.description
+																				}
+																			</span>
+																		</div>
+																		{skill.isOpen && (
+																			<div className="infoBox">
+																				<InfoBar
+																					skill={
+																						skill
+																					}
+																				/>
+																			</div>
+																		)}
+																	</>
 																);
 															}
 														)}
@@ -167,68 +193,9 @@ function App() {
 																.description
 														}
 													</div>
-													<div className="icons">
-														<div className="iconWrapper">
-															<a
-																target="_blank"
-																href={
-																	skillTotal
-																		.skill
-																		.url
-																}
-															>
-																<ImInfo className="icon iconInfo" />
-															</a>
-														</div>
-
-														<div className="iconWrapper">
-															<a
-																target="_blank"
-																href={`https://www.google.com/search?q=${skillTotal.skill.idCode}+web+development`}
-															>
-																<BsGoogle className="icon iconGoogle" />
-															</a>
-															<div className="extra extraGoogle">
-																en
-															</div>
-														</div>
-
-														<div className="iconWrapper">
-															<a
-																target="_blank"
-																href={`https://www.google.de/search?q=${skillTotal.skill.idCode}+web+development+deutsch`}
-															>
-																<BsGoogle className="icon iconGoogle" />
-															</a>
-															<div className="extra extraGoogle">
-															de	
-															</div>
-														</div>
-
-														<div className="iconWrapper">
-															<a
-																target="_blank"
-																href={`https://www.youtube.com/results?search_query=web+development+${skillTotal.skill.idCode}`}
-															>
-																<ImYoutube className="icon iconYoutube" />
-															</a>
-															<div className="extra extraYoutube">
-																en
-															</div>
-														</div>
-
-														<div className="iconWrapper">
-															<a
-																target="_blank"
-																href={`https://www.youtube.com/results?search_query=web+development+deutsch+${skillTotal.skill.idCode}`}
-															>
-																<ImYoutube className="icon iconYoutube" />
-															</a>
-															<div className="extra extraYoutube">
-																de
-															</div>
-														</div>
-													</div>
+													<InfoBar
+														skill={skillTotal.skill}
+													/>
 												</div>
 											)}
 										</div>

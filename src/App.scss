@@ -4,6 +4,7 @@ $skills_color: rgb(210, 210, 143);
 $skillRadius: .5rem;
 $skillBorder: rgb(82, 82, 58);
 $youtubeColor: rgb(83, 15, 3);
+$infoBox_background: #444;
 
 
 body {
@@ -35,9 +36,11 @@ body {
 			.show_smartphone {
 				display: block;
 			}
+
 			.show_computer {
 				display: none;
 			}
+
 			.responsiveHeader {
 				display: flex;
 				justify-content: space-between;
@@ -66,9 +69,11 @@ body {
 			.show_smartphone {
 				display: none;
 			}
+
 			.show_computer {
 				display: block;
 			}
+
 			display: grid;
 			grid-template-columns: 3fr 1fr;
 			gap: 1rem;
@@ -150,8 +155,31 @@ body {
 					.skills {
 						padding: 0 .5rem;
 
-						.skill {
-							padding: .3rem .3rem .3rem 0;
+						.nameDescription {
+							margin-bottom: 1rem;
+
+							.skill {
+								padding: .3rem .3rem .3rem 0;
+								color: rgb(230, 174, 70);
+								text-decoration: none;
+								margin-bottom: .5rem;
+								cursor: pointer;
+
+								&:hover {
+									color: orange;
+									text-shadow: 4px 4px 9px #000;
+								}
+							}
+
+						}
+
+						.infoBox {
+							background-color: $infoBox_background;
+							margin-top: .5rem;
+							margin-bottom: 1rem;
+							border-radius: .3rem;
+							padding: .4rem 1rem .7rem 1rem;
+							width: 12rem;
 						}
 					}
 				}
@@ -201,7 +229,7 @@ body {
 					}
 
 					.skillInfo {
-						background-color: #3c3c3c;
+						background-color: $infoBox_background;
 						padding: 1rem;
 						border-radius: 0 0 $skillRadius $skillRadius;
 						border-bottom: 1px solid $skillBorder;
@@ -212,54 +240,57 @@ body {
 							color: #aaa;
 						}
 
-						.icons {
-							display: flex;
-							gap: .7rem;
-
-							.iconWrapper {
-								.icon {
-									margin-top: 1rem;
-									font-size: 1.9rem;
-								}
-
-								.iconInfo {
-									color: rgb(4, 13, 39);
-									text-shadow: 1px 1px 1px 3px #666;
-								}
-
-								.iconYoutube {
-									color: $youtubeColor;
-									text-shadow: 1px 1px 1px 3px #666;
-								}
-								
-								.iconGoogle {
-									color: rgb(130, 100, 17);
-									font-size: 1.6rem;
-									text-shadow: 1px 1px 1px 3px #666;
-									margin-top: 1.1rem;
-								}
-
-								.extra {
-									margin-top: -.5rem;
-									font-weight: bold;
-									text-align: center;
-								}
-
-								.extraYoutube {
-									color: #222;
-									margin-top: -.3rem !important;
-								}
-
-								.extraGoogle {
-									color: #222;
-									margin-top: -.1rem !important;
-								}
-							}
-						}
 					}
 				}
 			}
 		}
 	}
 
+}
+
+
+// is at two places
+.iconBar {
+	display: flex;
+	gap: .7rem;
+
+	.iconWrapper {
+		.icon {
+			margin-top: 1rem;
+			font-size: 1.9rem;
+		}
+
+		.iconInfo {
+			color: rgb(4, 13, 39);
+			text-shadow: 1px 1px 1px 3px #666;
+		}
+
+		.iconYoutube {
+			color: $youtubeColor;
+			text-shadow: 1px 1px 1px 3px #666;
+		}
+
+		.iconGoogle {
+			color: rgb(130, 100, 17);
+			font-size: 1.6rem;
+			text-shadow: 1px 1px 1px 3px #666;
+			margin-top: 1.1rem;
+		}
+
+		.extra {
+			margin-top: -.5rem;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.extraYoutube {
+			color: #222;
+			margin-top: -.3rem !important;
+		}
+
+		.extraGoogle {
+			color: #222;
+			margin-top: -.1rem !important;
+		}
+	}
 }

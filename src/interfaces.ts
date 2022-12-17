@@ -16,6 +16,7 @@ export interface ISkill {
 	description: string;
 	lookupGoogleLink: string;
 	lookupYouTubeLink: string;
+	isOpen: boolean;
 }
 
 export interface ISkillTotal {
