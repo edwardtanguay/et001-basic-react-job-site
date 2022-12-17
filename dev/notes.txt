@@ -1,6 +1,1 @@
-- .. refactor
-	- .. useContext
-	- move to components
-- add jobs to right column
-
-	
+- .. add jobs to right column
