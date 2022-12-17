@@ -23,4 +23,5 @@ export interface ISkillTotal {
 	skill: ISkill;
 	total: number;
 	isOpen: boolean;
+	jobs: IJob[];
 }

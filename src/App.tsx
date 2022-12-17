@@ -5,6 +5,7 @@ import { IJob, ISkill, ISkillTotal } from './interfaces';
 import * as tools from './tools';
 import { FiLoader } from 'react-icons/fi';
 import { InfoBar } from './components/InfoBar';
+import React from 'react';
 
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
@@ -34,6 +35,7 @@ function App() {
 
 				// build skillTotals
 				const _skillTotals = tools.getSkillTotals(_jobs);
+				console.log(_skillTotals);
 
 				setJobs(_jobs);
 				setSkills(_skills);
@@ -109,7 +111,7 @@ function App() {
 														{job.skills.map(
 															(skill) => {
 																return (
-																	<>
+																	<React.Fragment key={skill.idCode}>
 																		<div className="nameDescription">
 																			<span
 																				className="skill"
@@ -141,7 +143,7 @@ function App() {
 																				/>
 																			</div>
 																		)}
-																	</>
+																	</React.Fragment>
 																);
 															}
 														)}
@@ -164,7 +166,7 @@ function App() {
 							<div className="skills">
 								{skillTotals.map((skillTotal) => {
 									return (
-										<div className="skillWrapper">
+										<div className="skillWrapper" key={skillTotal.skill.idCode}>
 											<div
 												key={skillTotal.skill.idCode}
 												className={`skill ${
