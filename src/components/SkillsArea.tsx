@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { AppContext } from '../AppContext';
-import { InfoBar } from '../components/InfoBar';
+import { SkillTotal } from './SkillTotal';
 
 export const SkillsArea = () => {
-	const { skillTotals, toggleSkillTotalIsOpen } =
+	const { skillTotals} =
 		useContext(AppContext);
 
 	return (
@@ -18,35 +18,7 @@ export const SkillsArea = () => {
 			<div className="skills">
 				{skillTotals.map((skillTotal) => {
 					return (
-						<div
-							className="skillWrapper"
-							key={skillTotal.skill.idCode}
-						>
-							<div
-								key={skillTotal.skill.idCode}
-								className={`skill ${
-									skillTotal.isOpen ? 'isOpen' : 'isClosed'
-								}`}
-								onClick={() =>
-									toggleSkillTotalIsOpen(skillTotal)
-								}
-							>
-								<div className="name">
-									<span className="total">
-										{skillTotal.total}x
-									</span>{' '}
-									{skillTotal.skill.name}
-								</div>
-							</div>
-							{skillTotal.isOpen && (
-								<div className="skillInfo">
-									<div className="description">
-										{skillTotal.skill.description}
-									</div>
-									<InfoBar skill={skillTotal.skill} />
-								</div>
-							)}
-						</div>
+						<SkillTotal skillTotal={skillTotal}/>
 					);
 				})}
 			</div>
