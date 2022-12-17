@@ -3,8 +3,9 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext';
 import { InfoBar } from '../components/InfoBar';
 
-const { jobs, skillTotals, handleInfoBarToggle } = useContext(AppContext);
 export const JobsArea = () => {
+	const { jobs, skillTotals, handleInfoBarToggle } = useContext(AppContext);
+
 	return (
 		<section className="jobArea">
 			<div className="responsiveHeader">

@@ -47,7 +47,6 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 
 				// build skillTotals
 				const _skillTotals = tools.getSkillTotals(_jobs);
-				console.log(_skillTotals);
 
 				setJobs(_jobs);
 				setSkills(_skills);
